@@ -67,7 +67,7 @@ class AdminReservationServiceTest {
         final Long themeId = themeRepository.save(notSavedTheme1()).getId();
         final Member member = memberRepository.save(notSavedMember1());
         final CreateBookedReservationRequest request =
-                new CreateBookedReservationRequest(member.getId(), date, timeId, themeId);
+                new CreateBookedReservationRequest(date, timeId, themeId, member.getId());
 
         // when
         final ReservationResponse response = adminReservationService.create(request);
@@ -92,7 +92,7 @@ class AdminReservationServiceTest {
         final Member member = memberRepository.save(notSavedMember1());
 
         final CreateBookedReservationRequest request =
-                new CreateBookedReservationRequest(member.getId(), date, timeId, themeId);
+                new CreateBookedReservationRequest(date, timeId, themeId, member.getId());
 
         // when & then
         Assertions.assertThatCode(() -> adminReservationService.create(request))
@@ -111,7 +111,7 @@ class AdminReservationServiceTest {
                 Reservation.of(ReservationSlot.of(date, reservationTime, theme), member, BOOKED));
 
         final CreateBookedReservationRequest request =
-                new CreateBookedReservationRequest(member.getId(), date, reservationTime.getId(), theme.getId());
+                new CreateBookedReservationRequest(date, reservationTime.getId(), theme.getId(), member.getId());
 
         // when & then
         Assertions.assertThatThrownBy(() -> adminReservationService.create(request))

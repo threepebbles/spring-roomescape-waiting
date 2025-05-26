@@ -5,13 +5,13 @@ import java.time.LocalDate;
 
 public record CreateBookedReservationRequest(
         @NotNull
-        Long memberId,
-        @NotNull
         LocalDate date,
         @NotNull
         Long timeId,
         @NotNull
-        Long themeId
+        Long themeId,
+        @NotNull
+        Long memberId
 ) {
 
     public record ForMember(

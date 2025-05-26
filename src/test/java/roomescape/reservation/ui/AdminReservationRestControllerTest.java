@@ -204,7 +204,7 @@ class AdminReservationRestControllerTest {
         final Long timeId = createReservationTimeResponses.get(0).id();
         final Long themeId = createThemeResponses.get(0).id();
 
-        return new CreateBookedReservationRequest(memberId, date, timeId, themeId);
+        return new CreateBookedReservationRequest(date, timeId, themeId, memberId);
     }
 
     private CreateBookedReservationRequest bookedReservationRequest2() {
@@ -212,6 +212,6 @@ class AdminReservationRestControllerTest {
         final Long timeId = createReservationTimeResponses.get(0).id();
         final Long themeId = createThemeResponses.get(1).id();
 
-        return new CreateBookedReservationRequest(memberId, date, timeId, themeId);
+        return new CreateBookedReservationRequest(date, timeId, themeId, memberId);
     }
 }
