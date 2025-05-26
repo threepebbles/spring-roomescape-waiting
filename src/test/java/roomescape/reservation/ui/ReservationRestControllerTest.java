@@ -75,9 +75,7 @@ class ReservationRestControllerTest {
         final SignUpRequest signUpRequest = signUpRequest1();
         final Map<String, String> memberCookies = memberLoginAndGetCookies(
                 new LoginRequest(signUpRequest.email(), signUpRequest.password()));
-        final
-
-        ForMember reservationParams = pastBookedReservationRequest();
+        final ForMember reservationParams = pastBookedReservationRequest();
 
         RestAssured.given().log().all()
                 .contentType(ContentType.JSON)
